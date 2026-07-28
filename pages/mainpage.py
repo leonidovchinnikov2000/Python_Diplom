@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from selenium import WebDriver
 
 # создание класса
 class MainPage:
@@ -17,14 +17,14 @@ class MainPage:
                 'styles_rootInLight__iqWuw image styles_root__95qkI"]'
                 )
 
-    def open_main_page(self, url="https://www.kinopoisk.ru/"):
+    def open_main_page(self, url: str = "https://www.kinopoisk.ru/") -> WebDriver:
         """открыть главную страницу"""
         self.driver.get(url)
         return self.driver
 
         """ввод фразы в строке поиска"""
 
-    def search_by_phrase(self, phrase):
+    def search_by_phrase(self, phrase: str):
         search_input = self.wait.until(
             EC.presence_of_element_located(
                 (By.XPATH, self.SEARCH)))
@@ -42,7 +42,7 @@ class MainPage:
         )
         return results
 
-    def get_top_search_results(self, name):
+    def get_top_search_results(self, name: str):
         """возвращает название фильма, первого в поиске"""
         result = self.wait.until(
             EC.presence_of_element_located(
