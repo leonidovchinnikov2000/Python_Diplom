@@ -1,10 +1,11 @@
 import pytest
 from selenium import webdriver
 
+
 @pytest.fixture(scope="function")
 def driver():
     """Фикстура для создания браузера."""
-    driver = webdriver.Chrome()
-    driver.maximize_window()
-    yield driver
-    driver.quit()
+    driver_obj = webdriver.Chrome()
+    driver_obj.maximize_window()
+    yield driver_obj
+    driver_obj.quit()

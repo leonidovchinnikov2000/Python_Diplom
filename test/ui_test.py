@@ -17,7 +17,7 @@ def test_search_film(driver):
         assert main_page.get_top_search_results(film_name) == film_name
 
 
-@pytest.mark.api
+@pytest.mark.ui
 @allure.title("Переход на вкладку «Билеты в кино»")
 @allure.story("Переход")
 def test_go_to_movie_tickets(driver):
@@ -31,7 +31,7 @@ def test_go_to_movie_tickets(driver):
         assert "Билеты в кино" in response
 
 
-@pytest.mark.api
+@pytest.mark.ui
 @allure.title("Поиск фильма по ID")
 @allure.story("Поиск")
 def test_search_film_id(driver):
@@ -48,7 +48,7 @@ def test_search_film_id(driver):
         assert stepmom.is_displayed(), "Постер не отображается"
 
 
-@pytest.mark.api
+@pytest.mark.ui
 @allure.title("Переход на вкладку «Фильмы»")
 @allure.story("Переход")
 def test_go_to_movie_films(driver):
@@ -62,7 +62,7 @@ def test_go_to_movie_films(driver):
         assert "Фильмы" in response
 
 
-@pytest.mark.api
+@pytest.mark.ui
 @allure.title("Переход на вкладку «Сериалы»")
 @allure.story("Переход")
 def test_go_to_serial(driver):
